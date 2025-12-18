@@ -109,7 +109,8 @@ export default function Home() {
         // Normal forward: load a new card
         const lastId = currentCard.id;
         const lastWordIds = (currentCard as any).wordIds || [];
-        const wordToMark = (currentAnchor && anchorCardCount >= 3) ? currentAnchor : undefined;
+        console.log('handlePassClick - currentCard:', currentCard, 'wordIds:', lastWordIds);
+        const wordToMark = (currentAnchor && anchorCardCount >= maxCardsForAnchor) ? currentAnchor : undefined;
         
         // Add current card to history with full state
         setCardHistory(prev => [...prev, {
