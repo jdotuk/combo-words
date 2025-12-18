@@ -45,7 +45,7 @@ export default function Home() {
       const result = await getNextCard(
         lastComboId, 
         needNewAnchor ? null : currentAnchor, 
-        needNewAnchor,
+        needNewAnchor || false,
         needNewAnchor ? lastComboWordIds : undefined,
         anchorCardCount,
         maxCardsForAnchor,
