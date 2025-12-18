@@ -44,7 +44,7 @@ export default function Home() {
 
       const result = await getNextCard(
         lastComboId, 
-        needNewAnchor ? null : currentAnchor, 
+        currentAnchor,
         needNewAnchor || false,
         needNewAnchor ? lastComboWordIds : undefined,
         anchorCardCount,
@@ -109,7 +109,6 @@ export default function Home() {
         // Normal forward: load a new card
         const lastId = currentCard.id;
         const lastWordIds = (currentCard as any).wordIds || [];
-        console.log('handlePassClick - currentCard:', currentCard, 'wordIds:', lastWordIds);
         const wordToMark = (currentAnchor && anchorCardCount >= maxCardsForAnchor) ? currentAnchor : undefined;
         
         // Add current card to history with full state
