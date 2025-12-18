@@ -25,7 +25,7 @@ const ADJECTIVES = [
   'locked', 'warm', 'smart', 'digital', 'mechanical', 'wireless', 'open', 
   'silver', 'sharp', 'thick', 'new', 'interesting', 'fat', 'friendly', 
   'beautiful', 'chocolate', 'birthday', 'sweet', 'delicious', 'bright', 
-  'bouncy', 'wooden', 'strong'
+  'bouncy', 'wooden', 'strong', 'brown'
 ];
 
 const VERBS = [
@@ -125,79 +125,79 @@ function seedCombos() {
   }
 
   // Generate comprehensive Adjective + Noun combos
-  // Ensuring every noun appears at least 4 times
+  // Ensuring every noun appears at least 7 times
   const adjNounPairs: Array<[string, string]> = [
-    // apple (5)
-    ['red', 'apple'], ['green', 'apple'], ['yellow', 'apple'], ['big', 'apple'], ['small', 'apple'],
+    // apple (7)
+    ['red', 'apple'], ['green', 'apple'], ['yellow', 'apple'], ['big', 'apple'], ['small', 'apple'], ['fresh', 'apple'], ['ripe', 'apple'],
     
-    // banana (5)
-    ['yellow', 'banana'], ['green', 'banana'], ['long', 'banana'], ['ripe', 'banana'], ['fresh', 'banana'],
+    // banana (7)
+    ['yellow', 'banana'], ['green', 'banana'], ['long', 'banana'], ['ripe', 'banana'], ['fresh', 'banana'], ['big', 'banana'], ['small', 'banana'],
     
-    // pillow (5)
-    ['soft', 'pillow'], ['white', 'pillow'], ['big', 'pillow'], ['small', 'pillow'], ['fluffy', 'pillow'],
+    // pillow (7)
+    ['soft', 'pillow'], ['white', 'pillow'], ['big', 'pillow'], ['small', 'pillow'], ['fluffy', 'pillow'], ['blue', 'pillow'], ['pink', 'pillow'],
     
-    // toothbrush (4)
-    ['wet', 'toothbrush'], ['dry', 'toothbrush'], ['clean', 'toothbrush'], ['blue', 'toothbrush'],
+    // toothbrush (7)
+    ['wet', 'toothbrush'], ['dry', 'toothbrush'], ['clean', 'toothbrush'], ['blue', 'toothbrush'], ['new', 'toothbrush'], ['old', 'toothbrush'], ['soft', 'toothbrush'],
     
-    // tree (5)
-    ['big', 'tree'], ['tall', 'tree'], ['green', 'tree'], ['old', 'tree'], ['small', 'tree'],
+    // tree (7)
+    ['big', 'tree'], ['tall', 'tree'], ['green', 'tree'], ['old', 'tree'], ['small', 'tree'], ['beautiful', 'tree'], ['strong', 'tree'],
     
-    // door (5)
-    ['red', 'door'], ['white', 'door'], ['big', 'door'], ['heavy', 'door'], ['locked', 'door'],
+    // door (7)
+    ['red', 'door'], ['white', 'door'], ['big', 'door'], ['heavy', 'door'], ['locked', 'door'], ['open', 'door'], ['wooden', 'door'],
     
-    // scarf (5)
-    ['soft', 'scarf'], ['long', 'scarf'], ['pink', 'scarf'], ['purple', 'scarf'], ['warm', 'scarf'],
+    // scarf (7)
+    ['soft', 'scarf'], ['long', 'scarf'], ['pink', 'scarf'], ['purple', 'scarf'], ['warm', 'scarf'], ['red', 'scarf'], ['blue', 'scarf'],
     
-    // car (6)
-    ['brand-new', 'car'], ['fast', 'car'], ['blue', 'car'], ['red', 'car'], ['old', 'car'], ['clean', 'car'],
+    // car (7)
+    ['brand-new', 'car'], ['fast', 'car'], ['blue', 'car'], ['red', 'car'], ['old', 'car'], ['clean', 'car'], ['dirty', 'car'],
     
-    // phone (5)
-    ['broken', 'phone'], ['brand-new', 'phone'], ['black', 'phone'], ['old', 'phone'], ['smart', 'phone'],
+    // phone (7)
+    ['broken', 'phone'], ['brand-new', 'phone'], ['black', 'phone'], ['old', 'phone'], ['smart', 'phone'], ['white', 'phone'], ['digital', 'phone'],
     
-    // laptop (5)
-    ['brand-new', 'laptop'], ['old', 'laptop'], ['black', 'laptop'], ['fast', 'laptop'], ['slow', 'laptop'],
+    // laptop (7)
+    ['brand-new', 'laptop'], ['old', 'laptop'], ['black', 'laptop'], ['fast', 'laptop'], ['slow', 'laptop'], ['white', 'laptop'], ['light', 'laptop'],
     
-    // camera (5)
-    ['broken', 'camera'], ['retro', 'camera'], ['brand-new', 'camera'], ['digital', 'camera'], ['old', 'camera'],
+    // camera (7)
+    ['broken', 'camera'], ['retro', 'camera'], ['brand-new', 'camera'], ['digital', 'camera'], ['old', 'camera'], ['black', 'camera'], ['small', 'camera'],
     
-    // keyboard (5)
-    ['retro', 'keyboard'], ['mechanical', 'keyboard'], ['wireless', 'keyboard'], ['broken', 'keyboard'], ['clean', 'keyboard'],
+    // keyboard (7)
+    ['retro', 'keyboard'], ['mechanical', 'keyboard'], ['wireless', 'keyboard'], ['broken', 'keyboard'], ['clean', 'keyboard'], ['white', 'keyboard'], ['black', 'keyboard'],
     
-    // window (5)
-    ['broken', 'window'], ['clean', 'window'], ['big', 'window'], ['dirty', 'window'], ['open', 'window'],
+    // window (7)
+    ['broken', 'window'], ['clean', 'window'], ['big', 'window'], ['dirty', 'window'], ['open', 'window'], ['small', 'window'], ['tall', 'window'],
     
-    // cup (5)
-    ['empty', 'cup'], ['full', 'cup'], ['clean', 'cup'], ['small', 'cup'], ['blue', 'cup'],
+    // cup (7)
+    ['empty', 'cup'], ['full', 'cup'], ['clean', 'cup'], ['small', 'cup'], ['blue', 'cup'], ['white', 'cup'], ['dirty', 'cup'],
     
-    // plate (5)
-    ['broken', 'plate'], ['dirty', 'plate'], ['full', 'plate'], ['clean', 'plate'], ['empty', 'plate'],
+    // plate (7)
+    ['broken', 'plate'], ['dirty', 'plate'], ['full', 'plate'], ['clean', 'plate'], ['empty', 'plate'], ['white', 'plate'], ['big', 'plate'],
     
-    // spoon (4)
-    ['shiny', 'spoon'], ['clean', 'spoon'], ['silver', 'spoon'], ['dirty', 'spoon'],
+    // spoon (7)
+    ['shiny', 'spoon'], ['clean', 'spoon'], ['silver', 'spoon'], ['dirty', 'spoon'], ['big', 'spoon'], ['small', 'spoon'], ['long', 'spoon'],
     
-    // knife (4)
-    ['shiny', 'knife'], ['sharp', 'knife'], ['clean', 'knife'], ['dirty', 'knife'],
+    // knife (7)
+    ['shiny', 'knife'], ['sharp', 'knife'], ['clean', 'knife'], ['dirty', 'knife'], ['big', 'knife'], ['small', 'knife'], ['long', 'knife'],
     
-    // shirt (5)
-    ['dry', 'shirt'], ['pink', 'shirt'], ['blue', 'shirt'], ['clean', 'shirt'], ['dirty', 'shirt'],
+    // shirt (7)
+    ['dry', 'shirt'], ['pink', 'shirt'], ['blue', 'shirt'], ['clean', 'shirt'], ['dirty', 'shirt'], ['white', 'shirt'], ['red', 'shirt'],
     
-    // shoe (4)
-    ['red', 'shoe'], ['black', 'shoe'], ['dirty', 'shoe'], ['clean', 'shoe'],
+    // shoe (7)
+    ['red', 'shoe'], ['black', 'shoe'], ['dirty', 'shoe'], ['clean', 'shoe'], ['white', 'shoe'], ['blue', 'shoe'], ['new', 'shoe'],
     
-    // book (5)
-    ['big', 'book'], ['old', 'book'], ['thick', 'book'], ['new', 'book'], ['interesting', 'book'],
+    // book (7)
+    ['big', 'book'], ['old', 'book'], ['thick', 'book'], ['new', 'book'], ['interesting', 'book'], ['small', 'book'], ['red', 'book'],
     
-    // bicycle (5)
-    ['slow', 'bicycle'], ['retro', 'bicycle'], ['red', 'bicycle'], ['old', 'bicycle'], ['fast', 'bicycle'],
+    // bicycle (7)
+    ['slow', 'bicycle'], ['retro', 'bicycle'], ['red', 'bicycle'], ['old', 'bicycle'], ['fast', 'bicycle'], ['blue', 'bicycle'], ['new', 'bicycle'],
     
-    // cat (5)
-    ['black', 'cat'], ['orange', 'cat'], ['white', 'cat'], ['fat', 'cat'], ['small', 'cat'],
+    // cat (7)
+    ['black', 'cat'], ['orange', 'cat'], ['white', 'cat'], ['fat', 'cat'], ['small', 'cat'], ['big', 'cat'], ['friendly', 'cat'],
     
-    // dog (5)
-    ['white', 'dog'], ['black', 'dog'], ['big', 'dog'], ['small', 'dog'], ['friendly', 'dog'],
+    // dog (7)
+    ['white', 'dog'], ['black', 'dog'], ['big', 'dog'], ['small', 'dog'], ['friendly', 'dog'], ['brown', 'dog'], ['old', 'dog'],
     
-    // flower (5)
-    ['purple', 'flower'], ['pink', 'flower'], ['red', 'flower'], ['yellow', 'flower'], ['beautiful', 'flower'],
+    // flower (7)
+    ['purple', 'flower'], ['pink', 'flower'], ['red', 'flower'], ['yellow', 'flower'], ['beautiful', 'flower'], ['blue', 'flower'], ['white', 'flower'],
     
     // cake (5)
     ['chocolate', 'cake'], ['birthday', 'cake'], ['big', 'cake'], ['sweet', 'cake'], ['delicious', 'cake'],
