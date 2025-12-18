@@ -134,7 +134,7 @@ export default function Home() {
     setActionLoading(true);
     try {
       // Store current card as the forward card
-      setForwardCard(currentCard);
+      setForwardCard(currentCard as any);
       
       // Pop the last card from history
       const historyEntry = cardHistory[cardHistory.length - 1];
@@ -233,7 +233,7 @@ export default function Home() {
           </div>
         ) : currentCard ? (
           <Flashcard
-            combo={currentCard}
+            combo={currentCard as any}
             onPass={handlePassClick}
             onBack={handleBackClick}
             canGoBack={cardHistory.length > 0}
@@ -249,13 +249,7 @@ export default function Home() {
               You've completed learning all {stats.total} base words. Great job!
             </p>
             <button
-              onClick={() => {
-                // Reset all words to unlearnt
-                db.prepare('UPDATE Words SET learnt = 0').run();
-                setAnchorWord(undefined);
-                setAnchorCount(0);
-                loadCard();
-              }}
+              onClick={handleReset}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors"
             >
               Start over
