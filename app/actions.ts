@@ -17,10 +17,14 @@ export async function getNextCard(lastComboId?: string, currentAnchor?: string |
   // If we need a new anchor word, chain from the last combo
   let anchorWord = currentAnchor;
   
+  console.log('getNextCard called:', { needNewAnchor, currentAnchor, lastComboWordIds, currentCardCount, maxCards });
+  
   if (!anchorWord || needNewAnchor) {
-    if (needNewAnchor && lastComboWordIds && currentAnchor) {
+    if (needNewAnchor && lastComboWordIds && lastComboWordIds.length > 0 && currentAnchor) {
       // Chain: pick a non-anchor word from the last combo to be the new anchor
       const otherWords = lastComboWordIds.filter(id => id !== currentAnchor);
+      
+      console.log('Attempting to chain from combo. Other words:', otherWords);
       
       if (otherWords.length > 0) {
         // Prioritize unlearnt base words, but allow any word as fallback
@@ -38,6 +42,7 @@ export async function getNextCard(lastComboId?: string, currentAnchor?: string |
         
         if (unlearntBaseWord) {
           anchorWord = unlearntBaseWord.id;
+          console.log('Found unlearnt base word:', anchorWord);
         } else {
           // No unlearnt base word? Try any base word (even if learnt)
           const anyBaseWord = db.prepare(`
@@ -53,6 +58,7 @@ export async function getNextCard(lastComboId?: string, currentAnchor?: string |
           
           if (anyBaseWord) {
             anchorWord = anyBaseWord.id;
+            console.log('Found any base word:', anchorWord);
           } else {
             // No base words? Pick any word (for bridging) - prioritize unlearnt
             const anyWord = db.prepare(`
@@ -65,13 +71,16 @@ export async function getNextCard(lastComboId?: string, currentAnchor?: string |
             
             if (anyWord) {
               anchorWord = anyWord.id;
+              console.log('Found any word for bridging:', anchorWord);
             } else {
               // Ultimate fallback: just pick the first other word
               anchorWord = otherWords[0];
+              console.log('Using first other word as fallback:', anchorWord);
             }
           }
         }
       } else {
+        console.log('No other words in combo, falling back to random base word');
         // Fallback: pick a random unlearnt base word
         anchorWord = null;
       }
